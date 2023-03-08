@@ -5,8 +5,12 @@ const tryCatchDemo = (state: "fail" | "succeed") => {
     if (state === "fail") {
       throw new Error("Failure!");
     }
-  } catch (e) {
+  } catch (e: any) {
+    if(e?.message) { 
     return e.message;
+    } else {
+      throw e;
+    }
   }
 };
 
